@@ -4,19 +4,19 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>elastic search</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="">
+		<meta name="author" content="Lumir Mrkva">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -40,337 +40,633 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+				<section data-background="resources/elastic.jpg" >
+					<div style="background-color: rgba(0, 0, 0, 0.3); color: #fff;">
+					<h1 style="text-transform: lowercase">elasticsearch</h1>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Lumír Mrkva - TopMonks Caffe</small>
 					</p>
+				</div>
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+				<!--section>
+					<h2>outline</h2>
+					<ul>
+						<li>what, where, why?</li>
+						<li>basic examples</li>
+						<li>our usecase</li>
+					</ul>
+				</section-->
 
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h2>What is it?</h2>
+						<p>scalable open-source search engine</p>
 					</section>
+
+					<aside class="notes" data-markdown>
+						co je to tedy elastic search?
+
+						je to velmi skalovatelny vyhledavaci engine, ktery je opensource VVV
+					</aside>
+				</section>
+
+				<section>
+					<h2>open source</h2>
+					<p><a href="http://github.com/elastic/elasticsearch">github.com/elastic/elasticsearch</a></p>
+					<p>apache licence</p>
+
+					<aside class="notes" data-markdown>
+						ano cely projekt je open source a to samozrejme umoznuje komukoli ho zacit vyuzivat bez omezeni,
+						proto vam nic nebrani ho zacit pouzivat a take se nemusite bat, ze vyvoj a podpora se v nejblizsi dobe zastavi
+					</aside>
+				</section>
+
+				<section>
+					<h2>scalable</h2>
+					<p>built-in clustering, just add more nodes</p>
+					<p>shards & replicas</p>
+					<p>high availability & performance</p>
+
+					<aside class="notes" data-markdown>
+						elastic je velmi jednoduse, ktera umoznuje pouziti i pro relativne velke datasety - samozrejme pokud mate nekolit terabajtu dat,
+						tak bude konfigurace potrebovat trosku ladeni, ale je to proveditelne
+
+						cluster lze rozsirovat dvema zpusoby, pridanim shardu a repliky
+
+						pridani shardu umoznuje rozdelit index na vice casti to umoznuje paralelizaci vsech operaci, ktera zvysi vykon
+						a propustnost clusteru
+						o distribuci shardu a agregaci dokumentu se postara cluster automaticky,
+						coz umoznuje vyhledavat ve velkem mnozstvi dokumentu aniz by si toho uzivatel vsiml.
+
+						pridanim replik zajistime vysokou dostupnost a redundanci v pripade ze vypadne nejaky node v clusteru
+						a zaroven zvysime vykon vyhledavani a jinych ctecich operaci, protoze muze byt provadeno paralelne skrz vsechny
+						repliky
+					</aside>
+				</section>
+
+				<section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+						<h2>search engine</h2>
+						<p>"You Know, for Search"</p>
+						<p>based on apache lucene</p>
+						<p class="fragment roll-in"><b>also powerful analytics engine</b></p>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+						<aside class="notes" data-markdown>
+							ano, elastic search je skutecne na hledani, bez ktereho se dnes prakticky v zadne aplikaci neobejdeme
+							kazdy z vas urcite nekdy psal vyhledavani z relacni databaze, kde jste se snazili najit urcity retezec skrz
+							spoustu poli a tabulek, takze si dovedete predstavit, ze vytvorit neco, co skutecne neco najde neni jen tak
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+							na tohle pouziva elastic knihovnu javovskou knihovnu apache lucene, ktera umi veskerou vyhledavaci magii,
+							ktera vam umozni vracet uvizateli relevantni vysledky
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+							krome vyhledavani se vsak elastic da vyuzit pro analyzu vasich dat, coz je take usecase, ktery vyuzivam ja.
+							umoznuje totiz fieldy aggregovat nejen s poctem vyskytu ale i ruznych statistickych funkci a umoznuje take
+							vytvaret histogramy, nejen po casovych intervalech.
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
+							takto treba sleduji prumernou odezvu urciteho api v case a nebo s poctem requestu za minutu.
 						</aside>
 					</section>
+
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
+						<h2>document centric</h2>
+						<p>tree structure</p>
+						<p>no fixed schema</p>
+						<p>typed fields</p>
+						<p>json</p>
+
+						<aside class="notes" data-markdown>
+							data jsou v elasticu ulozena ve forme dokumentu, podobne jako v ruznych nosql databazich.
+							takze nejste omezeni zadnym schematem pri ukladani dat, elastic vsak indexovane dokumenty analyzuje
+							a automaticky prirazuje k fieldum typy, coz samozrejme pomaha v agregaci dat a vyhledavani.
+							stromova sktruktura dokumentu ovsem nehraje moc do karet relacim mezi jednotlivymi entitami,
+							elastic vsak umoznuje nekolik zpusobu jak tenhle problem alespon castecne resit.
+							data jsou ulozena v json a tak se daji pouzit v jakekoli aplikaci a jsou take idealni pro prenos
+							pomoci restoveho api
+						</aside>
+					</section>
+
+					<section>
+						<h2>restful service</h2>
+						<p>http://elastic:9200/<b>{index}</b>/<b>{type}</b>/<b>{document}</b></p>
+
+						<aside class="notes" data-markdown>
+							o vyznamu restovych api v dnesni dobe snad uz nemusim mluvit, ale prave to je preferovany zpusob jak
+							aplikace s elastikem spolupracuje, coz umoznuje jednoduchou integraci do jakekoli aplikace, at je napsana
+							v cemkoli
+
+							index je kolekce dokumentu, ktere by spolu meli alespon trochu souviset - zalezi co chcete hledat v celem indexu.
+							pod typem by se dalo predstavit categorii dokumentu, vetsinou takove co maji podobne atributy
+							a dokument je jednotlivy kus informace daneho typu, reprezentovany v jsonu.
+
+							takze se k jednotlivemu dokumentu muzeme dostat trojici identifikatoru indexu, typu a dokumentu.
+							pod indexem, typem a radkem si muzeme predstavit analogicky databazi, tabulku a radek
+						</aside>
 					</section>
 				</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
+				<section data-background="resources/memory.jpg" data-background-transition="zoom">
+					<h2 style="margin-top: 0.7em; background-color: rgba(0, 0, 0, 0.3); color: #fff;">
+						let's index something!</h2>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
+					<aside class="notes" data-markdown>
+						takze myslim, ze je na case to api vyzkouset a neco zaindexovat
+
+						tipnete si asi jakou kapacitu ma tahle pametova karta? - 128 bytes
+
+						mene jak zprava na twitteru
+					</aside>
 				</section>
 
 				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-				</section>
+					<h2>install & run</h2>
+					<p><span class="fragment highlight-blue">3 commands</span> || docker image || cloud</p>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
+						<pre><code data-trim contenteditable class="nohighlight fragment roll-in">
+curl -L -O https://download.elastic.co/elasticsearch-1.5.2.tar.gz
+tar -xvf elasticsearch-1.5.2.tar.gz
+elasticsearch-1.5.2/bin/elasticsearch > /dev/null &
+						</code></pre>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+					<aside class="notes" data-markdown>
+						takze jak elastic spustim?, je to uplne jednoduche, staci na to 3 prikazy, nebo jen jeden za
+						pomoci dockeru, nebo proste muzete pouzit nejakou cloud service jako je treba bonsai.io
+					</aside>
+
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
+					<h7 class="request">GET http://localhost:9200</h7>
+					<pre><code data-trim contenteditable class="fragment roll-in">
+{
+	status: 200,
+	name: "Super Rabbit",
+	cluster_name: "elasticsearch",
+	version: {
+		number: "1.5.2",
+		build_hash: "62ff9868b4c8a0c45860bebb259e21980778ab1c",
+		build_timestamp: "2015-04-27T09:21:06Z",
+		build_snapshot: false,
+		lucene_version: "4.10.4"
+	},
+	tagline: "You Know, for Search"
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						elastic defaultne posloucha na portu 9200, takze muzeme vyzkouset zda opravdu bezi
+					</aside>
+				</section>
+
+				<section>
+					<h7 class="request">PUT <span style="color: #AAA">http://localhost:9200</span>/coffe/beer/maz</h7>
 					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+{
+  "name": "Svijansky maz",
+  "type": "pale lager",
+  "stage": 11,
+  "brewery": {
+    "name": "Svijany",
+    "est": 1564
+  }
+}
+					</code></pre>
 
-    var nodes = document.querySelectorAll( selector );
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "_index": "coffe",
+  "_type": "beer",
+  "_id": "maz",
+  "_version": 1,
+  "created": true
+}
+					</code></pre>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+					<aside class="notes" data-markdown>
+						takze muzeme zacit indexovat, jilikoz delame topmonks coffe, takze zacneme pivem
 
-      if( !node.className ) {
-        node.className += ' roll';
+						popsat objekt a co se vrati
+
+						index i typ se vytvori automaticky
+
+
+						a ejhle zapomeli jsme na nejdulezitejsi vec
+					</aside>
+				</section>
+
+
+				<section>
+					<h7 class="request">PUT /coffe/beer/maz</h7>
+					<pre><code data-trim contenteditable>
+{
+  "name": "Svijansky maz",
+  "type": "pale lager",
+  "stage": 11,
+  "brewery": {
+    "name": "Svijany",
+    "est": 1564,
+    "country": "Czech Republic"
+  }
+}
+					</code></pre>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "_index": "coffe",
+  "_type": "beer",
+  "_id": "maz",
+  "_version": 2,
+  "created": false
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						upravili jsme dokument a tedy i zvedli jeho verzi
+					</aside>
+				</section>
+
+				<section>
+					<h7 class="request">GET /coffe/beer/maz</h7>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "_index": "coffe",
+  "_type": "beer",
+  "_id": "maz",
+  "_version": 2,
+  "found": true,
+  "_source": {
+    "name": "Svijansky maz",
+    "type": "pale lager",
+    "stage": 11,
+    "brewery": {
+      "name": "Svijany",
+      "est": 1564,
+      "country": "Czech Republic"
+    }
+  }
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						samozrejme si dokument normalne stahnout
+					</aside>
+				</section>
+
+				<section>
+					<h7 class="request">GET /coffe/beer/maz/_source</h7>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "name": "Svijansky maz",
+  "type": "pale lager",
+  "stage": 11,
+  "brewery": {
+    "name": "Svijany",
+    "est": 1564,
+    "country": "Czech Republic"
+  }
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						samozrejme si dokument normalne stahnout
+					</aside>
+				</section>
+
+				<section>
+					<h7 class="request">GET /coffe/beer/_mapping</h7>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "coffe": {
+    "mappings": {
+      "beer": {
+        "properties": {
+          "brewery": {
+            "properties": {
+              "country": { "type": "string" },
+              "est": { "type": "long" },
+              "name": { "type": "string" }
+            }
+          },
+          "name": { "type": "string" },
+          "stage": { "type": "long" },
+          "type": { "type": "string" }
+        }
       }
     }
   }
 }
 					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
 
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					<aside class="notes" data-markdown>
+						muzu se podivat na mapping jak muj typ chape elastic,
+						to ale neznamena ze tyhle typy bude vyzadovat pri submitu
 					</aside>
 				</section>
 
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
+					<h7 class="request">POST /coffe/beer</h7>
+					<pre><code data-trim contenteditable>
+{
+  "name": "Bernard unfiltered",
+  "type": "light lager",
+  "stage": 12,
+  "brewery": {
+    "name": "Bernard",
+    "est": 1991,
+    "country": "Czech Republic"
+  }
+}
 					</code></pre>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "_index": "coffe",
+  "_type": "beer",
+  "_id": "AU0ujym7tj0BDQYcK67e",
+  "_version": 1,
+  "created": true
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						pokud nedodame id, elastic ho vygeneruje automaticky, hodi se treba u indexovani logu...
+					</aside>
 				</section>
 
 				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+					<h3>few beers later...</h3>
 				</section>
 
 				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
+					<h7 class="request">GET /_cat/indices/coffe?v</h7>
+
+					<pre><code data-trim contenteditable class="nohighlight fragment roll-in" style="background: #013220">
+health status index pri rep docs.count docs.deleted store.size pri.store.size
+yellow open   coffe   5   1         13            0     45.2kb         45.2kb
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						cat je uzitecny na zjisteni ruznych dat o stavu clusteru,
+						vypada to ze tam mame 13 kousku
+					</aside>
 				</section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
+				<section>
+					<h7 class="request">GET /coffe/_search?q=demon</h7>
+
+					<pre><code data-trim contenteditable class="nohighlight fragment roll-in" style="background: #013220">
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1,
+    "max_score": 0.43920785,
+    "hits": [
+      {
+        "_index": "coffe",
+        "_type": "beer",
+        "_id": "AU0uqnFHtj0BDQYcK67m",
+        "_score": 0.43920785,
+        "_source": {
+          "name": "Demon",
+          "type": "amber lager",
+          "stage": 12,
+          "brewery": {
+            "name": "Vysoky chlumec",
+            "country": "Czech Republic"
+          }
+        }
+      }
+    ]
+  }
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+
+					</aside>
 				</section>
+
+				<section>
+					<h7 class="request">POST /coffe/beer/_search</h7>
+					<pre><code data-trim contenteditable>
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "stage": 13 } }
+]}}}
+					</code></pre>
+
+					<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "took": 9,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "coffe",
+        "_type": "beer",
+        "_id": "AU0uqhBDtj0BDQYcK67l",
+        "_score": 1,
+        "_source": {
+          "name": "Ferdinand sedm kuli",
+          "type": "amber lager",
+          "stage": 13,
+          "brewery": {
+            "name": "Ferdinand",
+            "est": 1897,
+            "country": "Czech Republic"
+          }
+        }
+      },
+      {
+        "_index": "coffe",
+        "_type": "beer",
+        "_id": "AU0up15mtj0BDQYcK67h",
+        "_score": 1,
+        "_source": {
+          "name": "Zatec Baronka",
+          "type": "special pale lager",
+          "stage": "13",
+          "brewery": {
+            "name": "Zatec",
+            "est": 1801,
+            "country": "Czech Republic"
+          }
+        }
+      }
+    ]
+  }
+}
+					</code></pre>
+
+					<aside class="notes" data-markdown>
+						13
+					</aside>
+				</section>
+
+				<section>
+					<h2>query dsl</h2>
+					<p>match</p>
+					<p>bool</p>
+					<p>fuzzy</p>
+					<p>geoshape</p>
+					<p>regexp</p>
+					<p>range</p>
+
+					<p>...</p>
+
+
+					<aside class="notes" data-markdown>
+						fuzzy je zalozena Levenshtein vzdalenosti dvou retezcu
+					</aside>
+				</section>
+
+				<section>
+					<h2>filters</h2>
+					<p>term</p>
+					<p>range</p>
+					<p>has child</p>
+					<p>script</p>
+					<p>prefix</p>
+					<p>type</p>
+
+					<p>...</p>
+
+
+					<aside class="notes" data-markdown>
+
+					</aside>
+				</section>
+
+<section>
+				<section>
+				<h7 class="request">POST /coffe/beer/_search?search_type=count</h7>
+				<pre><code data-trim contenteditable>
+{
+    "aggs" : {
+        "stages" : {
+            "histogram" : {
+                "field" : "stage",
+                "interval": 1
+} } } }
+				</code></pre>
+
+				<pre><code data-trim contenteditable class="fragment roll-in" style="background: #013220">
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "failed": 0
+  },
+  "hits": {
+    "total": 13,
+    "max_score": 0,
+    "hits": []
+  },
+  "aggregations": {
+    "stages": {
+      "buckets": [
+        {
+          "key": 11,
+          "doc_count": 1
+        },
+        {
+          "key": 12,
+          "doc_count": 9
+        },
+        {
+          "key": 13,
+          "doc_count": 2
+        },
+        {
+          "key": 14,
+          "doc_count": 1
+        }
+      ]
+    }
+  }
+}
+				</code></pre>
+
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+
+							<img src="resources/histogram.png" />
+			<aside class="notes" data-markdown>
+
+			</aside>
+		</section>
+	</section>
+
+	<section>
+		<h2>aggregations</h2>
+		<p>histogram</p>
+		<p>ipv4</p>
+		<p>percentiles</p>
+		<p>terms</p>
+		<p>stats</p>
+		<p>count</p>
+
+		<p>...</p>
+
+
+		<aside class="notes" data-markdown>
+
+		</aside>
+	</section>
+
+	<section>
+		<h2>tired of api?</h2>
+		<p>unleash kibana</p>
+
+
+		<aside class="notes" data-markdown>
+
+		</aside>
+	</section>
+
+	<section data-background="resources/kibana.png" data-background-transition="zoom">
+
+
+
+		<aside class="notes" data-markdown>
+
+		</aside>
+	</section>
+
+
+	<section>
+		<h2>that's all folks</h2>
+		<p>moving on to the real beer</p>
+
+
+		<aside class="notes" data-markdown>
+
+		</aside>
+	</section>
 
 			</div>
 
